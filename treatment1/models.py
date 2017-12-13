@@ -74,25 +74,25 @@ class Group(BaseGroup):
 	
 	should_display_warning12 = True
 	
-	count3 = 1
+	count3 = models.IntegerField(initial=1)
 	
-	count4 = 1
+	count4 = models.IntegerField(initial=1)
 	
-	count5 = 1
+	count5 = models.IntegerField(initial=1)
 	
-	count6 = 1
+	count6 = models.IntegerField(initial=1)
 	
-	count7 = 1
+	count7 = models.IntegerField(initial=1)
 	
-	count8 = 1
+	count8 = models.IntegerField(initial=1)
 	
-	count9 = 1
+	count9 = models.IntegerField(initial=1)
+
+	count10 = models.IntegerField(initial=1)
 	
-	count10 = 1
+	count11 = models.IntegerField(initial=1)
 	
-	count11 = 1
-	
-	count12 = 1
+	count12 = models.IntegerField(initial=1)
 
 	
 	def find_lowest_contribution(self):
@@ -291,11 +291,11 @@ class Player(BasePlayer):
     
     cumulative_total = models.CurrencyField()
     
-    question1_truth = False
+    question1_truth = models.BooleanField(initial=False)
     
-    question2_truth = False
+    question2_truth = models.BooleanField(initial=False)
     
-    question3_truth = False
+    question3_truth = models.BooleanField(initial=False)
 
     def question_correct1(self):
         self.question1_truth = (self.question1 != Constants.question_correct)
