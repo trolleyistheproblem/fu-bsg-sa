@@ -32,26 +32,26 @@ th {
   </tr>
   <tr>
     <td>You</td>
-    <td>₹{{ player.contribution }}</td>
-    <td>₹{{ group.individual_share }}</td>
+    <td>{{ player.contribution }}</td>
+    <td>{{ group.individual_share }}</td>
   </tr>
   {% for p in player.get_others_in_group %}
   <tr>
     <td>Player {{ p.id_in_group }}</td>
-    <td>₹{{ p.contribution }}</td>
-    <td>₹{{ group.individual_share}}</td>
+    <td>{{ p.contribution }}</td>
+    <td>{{ group.individual_share}}</td>
   </tr>
   {% endfor %}
   
     <td>Player 4</td>
     <td>₹5.00</td>
-    <td>₹{{ group.individual_share }}</td>
+    <td>{{ group.individual_share }}</td>
   </tr>
   
   <tr>
     <td>Player 5</td>
     <td>₹3.00</td>
-    <td>₹{{ group.individual_share }}</td>
+    <td>{{ group.individual_share }}</td>
   </tr>
   <tr>
 </table>
