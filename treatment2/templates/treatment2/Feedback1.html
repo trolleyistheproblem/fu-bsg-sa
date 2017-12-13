@@ -1,0 +1,33 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Trial Round Solution
+{% endblock %}
+
+{% block content %}
+
+
+    <p>
+        This is a trial round, the values entered are not counted towards your total earnings. Once the trial round is over the experiment will begin.
+        
+        <tr><td colspan="2"><hr/></td></tr>
+        
+        Your answer <span  class="text-info">{{ player.question1 }}</span> was {% if player.question1_correct %}<span class="text-danger">incorrect </span>
+        {% else %}<span class="text-success">correct.</span>{% endif %}
+    </p>
+    <p>
+        Suppose in a group, 1 participant contributed ₹8, 1 participant contributed ₹4, 1 participant contributed ₹5, 1 participant contributed ₹3 and 1 participant contributed ₹0 . What would be the individual share of each participant?
+    </p>
+
+    <p>
+        <strong>Solution: ₹12</strong>
+    </p>
+
+    <p>
+        <strong>Explanation:</strong> Total contribution from all participants was ₹8 + ₹4 + ₹0 + ₹5 + ₹3 = ₹20. Total earnings from the project were ₹20*3 = ₹60.
+        Each participant got an equal share of the earnings, that is, ₹60/5= ₹12. This will be the individual share for each participant.
+    </p>
+    {% next_button %}
+
+{% endblock %}

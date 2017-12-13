@@ -1,0 +1,9 @@
+{% extends "global/Base.html" %} {% load staticfiles otree_tags %} {% block title %} Payment Receipt {% endblock %} {% block content %}
+<p>
+<tr><td>Written below are you 12-Round earnings, rounded up to the nearest rupee.
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td><b>Your 12 Round Total Earnings are:</b></td><td>{{ Receipt }}</td></tr>
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>Please present your Payment ID Card, which is on the desk in front of you, to the lab instructor to receive the above payment.</td></tr>
+ </p>
+{% next_button %} {% endblock %}

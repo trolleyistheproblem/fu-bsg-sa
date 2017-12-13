@@ -1,0 +1,66 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Updated Results Round {{ round_number }} 
+{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+th {
+    text-align: left;
+}
+</style>
+</head>
+<body>
+
+<table style="width:100%">
+  <tr>
+    <th>Player</th>
+    <th>Contribution</th>
+	<th>Individual Share</th>
+	<th>Accepted Payment?</th>
+  </tr>
+  <tr>
+    <td>You</td>
+    <td>{{ player.contribution }}</td>
+    <td>{{ group.individual_share }}</td>
+    <td>{{ player.acceptance }}</td>
+  </tr>
+  {% for p in player.get_others_in_group %}
+  <tr>
+    <td>Player {{ p.id_in_group }}</td>
+    <td>{{ p.contribution }}</td>
+    <td>{{ group.individual_share }}</td>
+    <td>{{ p.acceptance }}</td>
+  </tr>
+  {% endfor %}
+  
+  
+  <tr>
+    <td>Player 5</td>
+    <td>₹3.00</td>
+    <td>{{ group.individual_share }}</td>
+    <td>Yes</td>
+  </tr>
+  
+</table>
+
+</body>
+</html>
+
+<br>
+
+    {% next_button %}
+    
+{% endblock %}

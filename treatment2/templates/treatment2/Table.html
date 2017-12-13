@@ -1,0 +1,55 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+  <!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+th {
+    text-align: left;
+}
+</style>
+</head>
+<body>
+
+<table style="width:100%">
+  <tr>
+    <th>Player</th>
+    <th>Contribution</th>
+	<th>Individual Share</th>
+	<th>Amount Not Contributed</th>
+	<th>Round Earnings</th>
+  </tr>
+  <tr>
+    <td>Player 1</td>
+    <td>₹5</td>
+    <td>₹13.5</td>
+    <td>₹5</td>
+    <td>₹18.5</td>
+  </tr>
+  <tr>
+    <td>Player 2</td>
+    <td>₹4</td>
+    <td>₹13.5</td>
+    <td>₹6</td>
+    <td>₹19.5</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+
+{% endblock %}

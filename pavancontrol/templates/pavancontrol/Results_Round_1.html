@@ -1,0 +1,73 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Results Round {{ round_number}}
+{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+th {
+    text-align: left;
+}
+</style>
+</head>
+<body>
+
+<table style="width:100%">
+  <tr>
+    <th>Player</th>
+    <th>Contribution</th>
+	<th>Individual Share</th>
+  </tr>
+  <tr>
+    <td>You</td>
+    <td>{{ player.contribution }}</td>
+    <td>{{ group.individual_share }}</td>
+  </tr>
+  {% for p in player.get_others_in_group %}
+  <tr>
+    <td>Player {{ p.id_in_group }}</td>
+    <td>{{ p.contribution }}</td>
+    <td>{{ group.individual_share}}</td>
+  </tr>
+  {% endfor %}
+  
+
+  
+  <tr>
+    <td>Player 5</td>
+    <td>₹3.00</td>
+    <td>{{ group.individual_share }}</td>
+  </tr>
+  <tr>
+</table>
+
+</body>
+</html>
+
+    <p>
+    	 <tr><td colspan="2"><hr/></td></tr>
+    	 
+   		 <tr><td>For the following question, answer "yes" or "no" {% formfield player.accept with label="Do you accept your individual earnings for this round? " %}</td></tr> 
+   		 <tr><td>If you choose not to accept, your individual share from this round will not be added to your total.</td></tr>
+
+   		 <tr><td colspan="2"><hr/></td></tr>
+   		 
+   		 <tr><td>Below is a textbox in which you can enter anything you want to say to another player or players. You do not have to say anything.{% formfield player.feedback with label="What would you wish to convey to another player? " %}</td></tr> 
+	</p>
+
+
+    {% next_button %}
+    
+{% endblock %}

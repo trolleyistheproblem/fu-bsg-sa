@@ -1,0 +1,29 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+<tr><td>Your Answer Was Incorrect: </tr></td>
+<tr><td>Trial Round Question Attempt #3</tr></td>
+{% endblock %}
+
+{% block content %}
+    <p>
+    	This is a trial round, the values entered are not counted towards your total earnings. Once the trial round is over the experiment will begin and these values will count towards your total earnings.
+    <tr><td colspan="2"><hr/></td></tr>
+        Suppose in a group, 1 participant contributed ₹8, 1 participant contributed ₹4, 1 participant contributed ₹5, 1 participant contributed ₹3 and 1 participant contributed ₹0 . What would be the individual share of each participant?
+
+        (The individual share is the total contribution of the group, multiplied by {{ Constants.efficiency_factor }}, and divided by {{ Constants.players_per_group }})
+    </p>
+
+    {% formfield player.question3 with label="The individual share of each participant would now be" %}
+
+    {% next_button %}
+
+<p>
+<tr><td><b>INSTRUCTIONS:</b></td></tr>
+<tr><td></td></tr>
+
+<tr><td>In this study, you will be in a group of 5 people chosen at random, and you will play 12 rounds of this game. You will be given an <b> endowment</b> of {{ Constants.endowment }} each round to use to make a joint investment with the group. Each player decides how much he/she contributes to investment. This will be your round <b>contribution</b> Each round, your contribution can be any amount from ₹0 to {{ Constants.endowment }}. Your <b>round total</b> (round total = individual share + amount not contributed) will be calculated as follows: <ul> <li>In each round, the contributions of all 5 members are added up.</li> <li>The total is then is multiplied by {{ Constants.efficiency_factor }}.</li> <li>After being multiplied by {{ Constants.efficiency_factor }}, the new total is evenly split among the 5 members in that round. This will be your <b>individual share</b>.</li></ul> At the end of the rounds, you will get to keep your individual share, plus the amount you did not contribute at the start of each round. There will be 12 rounds and the entire process will take 30 to 40 minutes. You can potentially earn up to ₹360 at the end of the game.</td></tr></p>
+
+
+{% endblock %}

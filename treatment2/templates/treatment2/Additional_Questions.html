@@ -1,0 +1,27 @@
+{% extends "global/Base.html" %} {% load staticfiles otree_tags %} {% block title %} Additional Questions {% endblock %} {% block content %}
+<p>
+<tr><td>For the following question please indicate any emotion(s) you might have felt towards players who entered messages during the game. If no emotions were felt, leave the box blank.</tr></td>
+<tr><td>{% formfield player.enter_emotion with label="What emotion did you feel, if any, towards this player during the game?" %}</tr></td>
+<tr><td colspan="2"><hr/></td></tr>
+
+<tr><td>For the following question, indicate your general feeling towards the players who were sending messages during the game. The values below are on a scale in which -5 is an intense negative emotion, 0 represents not feeling anything, and 5 represents an intense positive emotion. </tr></td>
+<tr><td>{% formfield player.general_feeling with label="What was you general feeling towards this player during the game?" %}</tr></td>
+<tr><td colspan="2"><hr/></td></tr>
+
+<tr><td>For the following questions, indicate the level to which you experienced any of the below emotions towards players who entered messsages during the game. The values below are on a scale in which 0 represents not feeling the emotion at all and 5 represents feeling the emotion intensely. </tr></td>
+<tr><td>{% formfield player.empathy with label="How empathetical did the other players sending messages make you feel?" %}</tr></td>
+<tr><td colspan="2"><hr/></td></tr>
+
+<tr><td>{% formfield player.confusion with label="How confused did the other players sending messages make you feel?" %}</tr></td>
+<tr><td colspan="2"><hr/></td></tr>
+
+<tr><td>{% formfield player.admiration with label="How much admiration did you feel for the other players sending messages?" %}</tr></td>
+<tr><td colspan="2"><hr/></td></tr>
+
+<tr><td>{% formfield player.irritation with label="How irritated did the other players sending messages make you feel?" %}</tr></td>
+<tr><td colspan="2"><hr/></td></tr>
+
+<tr><td>{% formfield player.guilt with label="How guilty did the other players sending messages make you feel? " %}</tr></td>
+<tr><td colspan="2"><hr/></td></tr>
+ </p>
+{% next_button %} {% endblock %}

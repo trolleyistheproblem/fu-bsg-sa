@@ -1,0 +1,16 @@
+{% extends "global/Base.html" %} {% load staticfiles otree_tags %} {% block title %} Exit Survey {% endblock %} {% block content %}
+<p>
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>{% formfield player.why with label="Throughout the game, why did you contribute what you contributed? " %}</td></tr> 
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>{% formfield player.gender with label="What is your gender? " %}</td></tr> 
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>{% formfield player.age with label="What is your age? " %}</td></tr>
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>{% formfield player.education with label="What is your level of education? " %}</td></tr>
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>{% formfield player.income with label="What is your anual income? " %}</td></tr>
+<tr><td colspan="2"><hr/></td></tr>
+<tr><td>{% formfield player.occupation with label="What is your occupation? " %}</td></tr>
+ </p>
+{% next_button %} {% endblock %}
