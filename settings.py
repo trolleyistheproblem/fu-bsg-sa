@@ -18,7 +18,7 @@ else:
 ADMIN_USERNAME = 'admin'
 
 # for security, best to set admin password in an environment variable
-ADMIN_PASSWORD = environ.get('cessroxx')
+ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
 # don't share this with anybody.
 SECRET_KEY = 'ww=aou-+#*wmi*-0tenz5j*%4)%0c9$y%(vp0$k69vunf@!8kx'
