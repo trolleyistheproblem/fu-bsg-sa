@@ -233,6 +233,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
+
     contribution = models.CurrencyField(
         min=0, max=Constants.endowment,
         doc="""The amount contributed by the player""",
@@ -314,3 +315,9 @@ class Player(BasePlayer):
     def cumulative_payoff(self):
     	self.cumulative_total = sum([p.payoff for p in self.in_all_rounds()])
     	return self.cumulative_total
+
+
+
+
+
+

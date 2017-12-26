@@ -127,8 +127,8 @@ class SecondResults(Page):
 			'accept_payment_response': self.player.acceptance,
 			'player_5_response': self.group.player_5_acceptance,
 			'player_4_response': self.group.player_4_acceptance,
-			'round_number': self.subsession.round_number
-		}   
+			'round_number': self.subsession.round_number,
+		}
      
 class Player_5_Feedback_Round_3(Page):
 

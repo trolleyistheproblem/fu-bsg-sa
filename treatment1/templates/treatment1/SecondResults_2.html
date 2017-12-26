@@ -32,17 +32,17 @@ th {
 	<th>Accepted Payment?</th>
   </tr>
   <tr>
-    <td>You</td>
-    <td>{{ player.contribution }}</td>
-    <td>{{ group.individual_share }}</td>
-    <td>{{ player.acceptance }}</td>
+      <td>{% if player.acceptance == 'No' %}<span class="text-danger">You</span>{% else %}You{% endif %}</td>
+    <td>{% if player.acceptance == 'No' %}<span class="text-danger">{{ player.contribution }}</span>{% else %}{{ player.contribution }}{% endif %}</td>
+    <td> {% if player.acceptance == 'No' %}<span class="text-danger">₹ 0.00</span> {% else %} {{ group.individual_share }}   {% endif %}</td>
+    <td>{% if player.acceptance == 'No' %}<span class="text-danger">{{ player.acceptance }}</span> {% else %}{{ player.acceptance }}{% endif %}</td>
   </tr>
   {% for p in player.get_others_in_group %}
   <tr>
-    <td>Player {{ p.id_in_group }}</td>
-    <td>{{ p.contribution }}</td>
-    <td>{{ group.individual_share }}</td>
-    <td>{{ p.acceptance }}</td>
+    <td>{% if p.acceptance == 'No' %}<span class="text-danger">Player {{ p.id_in_group }}</span> {% else %}Player {{ p.id_in_group }}{% endif %}</td>
+    <td>{% if p.acceptance == 'No' %}<span class="text-danger">{{ p.contribution }}</span>{% else %}{{ p.contribution }}{% endif %}</td>
+    <td>{% if p.acceptance == 'No' %}<span class="text-danger">{% if p.acceptance == 'Yes' %} {{ group.individual_share }} {% else %} ₹ 0.00 {% endif %}</span>{% else %}{% if p.acceptance == 'Yes' %} {{ group.individual_share }} {% else %} ₹ 0.00 {% endif %}{% endif %}</td>
+    <td>{% if p.acceptance == 'No' %}<span class="text-danger">{{ p.acceptance }}</span>{% else %}{{ p.acceptance }}{% endif %}</td>
   </tr>
   {% endfor %}
   
