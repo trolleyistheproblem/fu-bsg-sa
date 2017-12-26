@@ -117,18 +117,35 @@ class SecondResultsWaitPage(WaitPage):
     body_text = "Waiting for other players"
     
 class SecondResults(Page):
+    def is_displayed(self):
+        return self.subsession.round_number <= 3
+
+    def vars_for_template(self):
+        return {
+            'player_5_earning': self.group.player_5_earnings,
+            'player_4_earning': self.group.player_4_earnings,
+            'accept_payment_response': self.player.acceptance,
+            'player_5_response': self.group.player_5_acceptance,
+            'player_4_response': self.group.player_4_acceptance,
+            'round_number': self.subsession.round_number
+        }
+
+class SecondResults_2(Page):
+
+	def is_displayed(self):
+		return self.subsession.round_number > 3
 
 	def vars_for_template(self):
-	
-		return{
+		return {
 			'player_5_earning': self.group.player_5_earnings,
 			'player_4_earning': self.group.player_4_earnings,
 			'accept_payment_response': self.player.acceptance,
 			'player_5_response': self.group.player_5_acceptance,
 			'player_4_response': self.group.player_4_acceptance,
 			'round_number': self.subsession.round_number
-		}   
-     
+		}
+
+
 class Player_5_Feedback_Round_3(Page):
 
 	def is_displayed(self):
@@ -275,15 +292,9 @@ page_sequence = [Introduction,
             Results_Round_1,
             SecondResultsWaitPage,
             SecondResults,
+            SecondResults_2,
             Player_5_Feedback_Round_4,
             Player_5_Feedback_Round_5,
-            Player_5_Feedback_Round_6,
-            Player_5_Feedback_Round_7,
-            Player_5_Feedback_Round_8,
-            Player_5_Feedback_Round_9,
-            Player_5_Feedback_Round_10,
-            Player_5_Feedback_Round_11,
-            Player_5_Feedback_Round_12,
             Exit_Survey,
             AdditionalQuestionsWaitPage,
             Additional_Questions,

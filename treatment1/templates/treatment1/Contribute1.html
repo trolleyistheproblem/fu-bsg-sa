@@ -2,12 +2,12 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Round {{ round_number }} Contribute
+    Round {{ round_number }} Input
 {% endblock %}
 
 {% block content %}
 
-    {% formfield player.contribution with label="How much will you contribute to the investment - any amount from ₹0 to ₹10?" %}
+    {% formfield player.contribution with label="How much will you put into the investment - any amount from ₹0 to ₹10?" %}
 
     {% next_button %}
 

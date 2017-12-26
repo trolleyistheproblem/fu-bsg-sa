@@ -241,9 +241,11 @@ class Player(BasePlayer):
         min=0, max=Constants.endowment,
         doc="""The amount contributed by the player""",
     )
-    
+
+
+
     enter_emotion = models.CharField(blank=True)
-    
+
     acceptance = models.CharField()
 
     accept = models.CharField(
@@ -297,6 +299,7 @@ class Player(BasePlayer):
     
     question3_truth = models.BooleanField(initial=False)
 
+
     def question_correct1(self):
         self.question1_truth = (self.question1 != Constants.question_correct)
         return self.question1_truth
@@ -318,3 +321,5 @@ class Player(BasePlayer):
     def cumulative_payoff(self):
     	self.cumulative_total = sum([p.payoff for p in self.in_all_rounds()])
     	return self.cumulative_total
+
+
